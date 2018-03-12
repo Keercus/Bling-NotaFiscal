@@ -2,6 +2,8 @@
 
 namespace Bling;
 
+use Bling\Client;
+
 class Bling
 {
     private $strBlingUrl = "https://bling.com.br/Api/v2";
@@ -45,7 +47,7 @@ class Bling
         );
 
         // EXECUTA O ENVIO DE DADOS PARA O BLING
-        return $this->sendDataToBling($strContext, 'post', $arrayData, null, $strProductCode);
+        return $this->sendToBling($strContext, 'post', $arrayData, null, $strProductCode);
     }
 
     /**
@@ -167,7 +169,7 @@ class Bling
         );
 
         // EXECUTA O ENVIO DE DADOS PARA O BLING
-        return $this->sendDataToBling($strContext, 'post', $arrayData, null);
+        return $this->sendToBling($strContext, 'post', $arrayData, null);
     }
 
     /**
@@ -180,7 +182,7 @@ class Bling
     public function getProduct(string $strProductCode = null, string $responseFormat = 'xml') : string
     {
         // EXECUTA O ENVIO DE DADOS PARA O BLING
-        return $this->sendDataToBling('produto', 'get', $strProductCode, $responseFormat);
+        return $this->sendToBling('produto', 'get', $strProductCode, $responseFormat);
     }
 
     /**
@@ -192,8 +194,7 @@ class Bling
      */
     public function getOrder(string $strOrderCode = NULL, string $responseFormat = 'xml') : string
     {
-        // EXECUTA O ENVIO DE DADOS PARA O BLING
-        return $this->sendDataToBling('pedido', 'get', $strOrderCode, $responseFormat);
+        return $this->sendToBling('pedido', 'get', $strOrderCode, $responseFormat);
     }
 
     /**
@@ -215,8 +216,7 @@ class Bling
         if ($strNfNumber || $strNfSerie) {
             $strNfCode = $strNfNumber . "/" . $strNfSerie;
         }
-        // EXECUTA O ENVIO DE DADOS PARA O BLING
-        return $this->sendDataToBling('notafiscal', 'get', $strNfCode, $responseFormat);
+        return $this->sendToBling('notafiscal', 'get', $strNfCode, $responseFormat);
 
     }
 
@@ -229,10 +229,31 @@ class Bling
      */
     public function deleteProduct(string $strProductCode, string $responseFormat = 'xml') : string
     {
-        // EXECUTA O ENVIO DE DADOS PARA O BLING
-        return $this->sendDataToBling('produto', 'delete', $strProductCode, $responseFormat);
+        return $this->sendToBling('produto', 'delete', $strProductCode, $responseFormat);
     }
 
+    private function sendToBling(
+        string $path,
+        string $strAction,
+        ?string $data = null,
+        ?string $strResponseFormat = null,
+        ?string $strItemCode = null
+    ) : string
+    {
+        $response = '';
+        $client = new \Bling\Client($this->strBlingUrl); 
+        if ($strAction == 'get') {
+            $path = sprintf('%s/%s/%s', $path, $data, $strResponseFormat);
+            $response = $client->request($path, Client::METHOD_GET, ['apikey' => $this->strApiKey]);
+        } elseif($strAction == 'post') {
+            $response = $client->request($path, Client::METHOD_POST, array_merge($arrayData, ['apikey' => $this->strApiKey]));
+        } elseif($strAction == 'delete') {
+            $path = sprintf('%s/%s/%s', $path, $data, $strResponseFormat);
+            $response = $client->request($path, Client::METHOD_DELETE, ['apikey' => $this->strApiKey]);
+        }
+
+        return $response;
+    }
     /**
     * Executa o envio de dados ao Bling
     * 

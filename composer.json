@@ -1,0 +1,25 @@
+{
+    "name" : "keercus/bling-sdk",
+    "description" : "Client para conexão com Bling ERP",
+    "type" : "library",
+    "license" : "MIT",
+    "authors" : [
+        {
+            "name" : "Igor Carvalho",
+            "email" :  "igor822@gmail.com"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {
+            "Bling\\" : "src/"
+        },
+        "files" : [
+            "src/functions.php"
+        ]
+    },
+    "minimum-stability" : "dev",
+    "require" : {
+        "php" : ">=7.1",
+        "ext-soap" : "*"
+    }
+}

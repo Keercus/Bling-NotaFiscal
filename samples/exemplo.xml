@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pedido>
+  <numero_nf>1</numero_nf>
+  <cliente>
+    <nome>Maria Fulana</nome>
+    <tipoPessoa>F</tipoPessoa>
+    <cpf_cnpj>123.456.789-11</cpf_cnpj>
+    <endereco>Rua Curitiba</endereco>
+    <numero>1</numero>
+    <complemento>Casa</complemento>
+    <bairro>Teste</bairro>
+    <cep>010000000</cep>
+    <cidade>São Paulo</cidade>
+    <uf>SP</uf>
+    <fone>(11) 3038-1838</fone>
+    <email>teste@teste.com</email>
+  </cliente>
+  <itens>
+    <item>
+      <codigo>123</codigo>
+      <descricao>Nome Produto</descricao>
+      <un>Un</un>
+      <qtde>1</qtde>
+      <vlr_unit>171</vlr_unit>
+      <tipo>P</tipo>
+      <peso_bruto>1.3500</peso_bruto>
+      <peso_liq>1.3500</peso_liq>
+      <class_fiscal>4820.1000</class_fiscal>
+      <origem>0</origem>
+    </item>
+  </itens>
+  <parcelas></parcelas>
+  <vlr_frete>54.98</vlr_frete>
+  <vlr_seguro>0</vlr_seguro>
+  <vlr_despesas>0</vlr_despesas>
+  <vlr_desconto>0.00</vlr_desconto>
+  <obs/>
+</pedido>

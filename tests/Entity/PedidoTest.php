@@ -17,7 +17,7 @@ class PedidoTest extends TestCase
     {
         $numeroNotaFiscal = '123';
         $cliente = $this->generateCliente();
-        $itens = [$this->generateItems()];
+        $itens = [$this->generateItem()];
         $valorDesconto = 0;
         $parcelas = [];
         $valorFrete = 0;

@@ -50,7 +50,7 @@ trait EntityGeneratorTrait
         return $enderecoObj;
     }
 
-    public function generateItems(): Item
+    public function generateItem(): Item
     {
         $codigo = '123';
         $descricao = 'Nome Produto';
@@ -83,7 +83,7 @@ trait EntityGeneratorTrait
     {
         $numeroNotaFiscal = '123';
         $cliente = $this->generateCliente();
-        $itens = [$this->generateItems()];
+        $itens = [$this->generateItem()];
         $valorDesconto = 0;
         $parcelas = [];
         $valorFrete = 0;

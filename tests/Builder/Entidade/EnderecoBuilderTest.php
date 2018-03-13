@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Tests\Builder;
+namespace Tests\Builder\Entidade;
 
-use Bling\Builder\EnderecoBuilder;
+use Bling\Builder\Entidade\EnderecoBuilder;
 use Bling\Builder\XmlHandler;
 use PHPUnit\Framework\TestCase;
 use Tests\Traits\EntityGeneratorTrait;

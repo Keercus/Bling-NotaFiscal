@@ -1,9 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Bling\Builder;
+namespace Bling\Builder\Entidade;
 
 use Bling\Entity\Cliente;
 use Bling\Builder\XmlBuilderTrait;
+use Bling\Builder\BuilderInterface;
 
 class ClienteBuilder implements BuilderInterface
 {

@@ -3,6 +3,7 @@
 namespace Bling;
 
 use Bling\Client;
+use function Bling\maskString;
 
 class Bling
 {
@@ -110,7 +111,7 @@ class Bling
      * @param array $arrayPreData
      * @return string | json
      */
-    public function postNotaFiscal(array $arrayPreData) : string
+    public function postNotaFiscal(array $arrayPreData) : array
     {
         // DEFINE O CONTEXTO DO ENVIO
         $strContext = 'notafiscal';
@@ -133,6 +134,7 @@ class Bling
         // PRÉ-DEFINE O PARÂMETRO ANTES DA ITERAÇÃO A SEGUIR
         $n = 0;
 
+        var_dump($arrayPreData);
         // DEFINE UM VALOR PADRÂO EM CADA ITEM PARA O PARÂMETRO 'un' CASO NÃO SEJA INFORMADO 
         foreach ($arrayPreData['itens'] as $arrayValue) {
             if (isset($arrayValue['un']) && !$arrayValue['un']) {
@@ -167,6 +169,8 @@ class Bling
             "apikey" => $this->strApiKey,
             "xml" => rawurlencode($this->buildXml($arrayPreData, $strContext))
         );
+
+        return $arrayData;
 
         // EXECUTA O ENVIO DE DADOS PARA O BLING
         return $this->sendToBling($strContext, 'post', $arrayData, null);
@@ -291,7 +295,7 @@ class Bling
 
             // CASO O VALOR EXISTA E SEJA UM STRING, CRIA UM UM NOVO NÓ NO XML, EXISTEM VALORES DEFINIDOS COMO "0"
             } elseif($value1 != "") {
-                $xml->addChild($key1,  html_entity_decode($value1));
+                $xml->addChild($key1,  html_entity_decode((string)$value1));
             }
         }
 
@@ -325,7 +329,7 @@ class Bling
 
             // CASO O VALOR EXISTA E SEJA UM STRING, CRIA UM UM NOVO NÓ NO XML, EXISTEM VALORES DEFINIDOS COMO "0"
             } elseif($value != "") {
-                $node->addChild($key, htmlspecialchars($value));
+                $node->addChild($key, htmlspecialchars((string)$value));
             }
         }
     }

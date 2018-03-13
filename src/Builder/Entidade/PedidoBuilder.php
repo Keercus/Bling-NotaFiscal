@@ -5,6 +5,9 @@ namespace Bling\Builder\Entidade;
 use Bling\Entity\Pedido;
 use Bling\Builder\XmlBuilderTrait;
 use Bling\Builder\BuilderInterface;
+use Bling\Builder\Entidade\ClienteBuilder;
+use Bling\Builder\Entidade\ItensBuilder;
+use Bling\Builder\Entidade\ParcelasBuilder;
 
 class PedidoBuilder implements BuilderInterface
 {
@@ -50,8 +53,28 @@ class PedidoBuilder implements BuilderInterface
             'obs',
             $this->pedido->getObservacao()
         );
+        $pedidoNode->appendChild($this->buildCliente($xml)->getElementsByTagName('cliente')[0]);
+        $pedidoNode->appendChild($this->buildItens($xml)->getElementsByTagName('itens')[0]);
+        $pedidoNode->appendChild($this->buildParcelas($xml)->getElementsByTagName('parcelas')[0]);
         $xml->appendChild($pedidoNode);
         return $xml;
     }
 
+    private function buildCliente(\DOMDocument $xml): \DOMDocument
+    {
+        $builder = new ClienteBuilder($this->pedido->getCliente());
+        return $builder->build($xml);
+    }
+
+    private function buildItens(\DOMDocument $xml): \DOMDocument
+    {
+        $builder = new ItensBuilder($this->pedido->getItens());
+        return $builder->build($xml);
+    }
+
+    private function buildParcelas(\DOMDocument $xml): \DOMDocument
+    {
+        $builder = new ParcelasBuilder($this->pedido->getParcelas());
+        return $builder->build($xml);
+    }
 }

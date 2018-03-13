@@ -46,4 +46,18 @@ class ParcelaBuilderTest extends TestCase
         $this->assertInstanceOf(ParcelasBuilder::class, $builder);
         $this->assertContains($xml, $xmlResponse);
     }
+
+    public function testXmlGenerationVazio(): void
+    {
+        $xmlHandler = new XmlHandler();
+        $xml = '<parcelas/>';
+
+        $builder = new ParcelasBuilder([]);
+        $xmlHandler->addChild($builder);
+
+        $xmlResponse = $xmlHandler->handle();
+
+        $this->assertInstanceOf(ParcelasBuilder::class, $builder);
+        $this->assertContains($xml, $xmlResponse);
+    }
 }

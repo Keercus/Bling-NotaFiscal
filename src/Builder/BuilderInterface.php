@@ -4,5 +4,5 @@ namespace Bling\Builder;
 
 interface BuilderInterface
 {
-    public function build(\DomDocument $xml): string;
+    public function build(\DOMDocument $xml): \DOMDocument;
 }

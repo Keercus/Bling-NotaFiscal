@@ -16,7 +16,7 @@ class ClienteBuilder implements BuilderInterface
         $this->cliente = $cliente;
     }
 
-    public function build(\DomDocument $xml): string
+    public function build(\DOMDocument $xml): \DOMDocument
     {
         $clienteNode = $xml->createElement('cliente');
 
@@ -51,6 +51,6 @@ class ClienteBuilder implements BuilderInterface
         );
 
         $xml->appendChild($clienteNode);
-        return $xml->saveXML();
+        return $xml;
     }
 }

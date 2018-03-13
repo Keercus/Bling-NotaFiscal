@@ -31,6 +31,7 @@ class ClienteBuilderTest extends TestCase
             sprintf('<email>%s</email>', $cliente->getEmail())
         ];
         $xml = '<cliente>' . implode('', $items) . '</cliente>';
+
         $clientBuilder = new ClienteBuilder($cliente);
         $xmlHandler->addChild($clientBuilder);
 

@@ -23,11 +23,10 @@ class XmlHandler
 
     public function handle(): string
     {
-        $response = '';
         foreach ($this->elements as $element) {
-            $response = $element->build($this->xml);
+            $this->xml = $element->build($this->xml);
         }
 
-        return $response;
+        return $this->xml->saveXML();
     }
 }

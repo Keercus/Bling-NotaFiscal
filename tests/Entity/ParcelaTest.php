@@ -31,4 +31,3 @@ class ParcelaTest extends TestCase
         $this->assertEquals($formaPagamento, $parcela->getFormaPagamento());
     }
 }
-

@@ -6,6 +6,7 @@ use Bling\Entity\Cliente;
 use Bling\Entity\Endereco;
 use Bling\Entity\Item;
 use Bling\Entity\Pedido;
+use Bling\Entity\Parcela;
 
 trait EntityGeneratorTrait
 {
@@ -104,5 +105,24 @@ trait EntityGeneratorTrait
         );
 
         return $pedido;
+    }
+
+    public function generateParcela(): Parcela
+    {
+        $dias = 1;
+        $data = date('d/m/Y');
+        $valor = 10.00;
+        $observacao = '-';
+        $formaPagamento = '';
+
+        $parcela = new Parcela(
+            $data,
+            $valor,
+            $dias,
+            $observacao,
+            $formaPagamento
+        );
+
+        return $parcela;
     }
 }

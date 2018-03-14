@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Bling\Builder\Entidade;
+namespace Bling\NotaFiscal\Builder\Entidade;
 
-use Bling\Entity\Pedido;
-use Bling\Builder\XmlBuilderTrait;
-use Bling\Builder\BuilderInterface;
-use Bling\Builder\Entidade\ClienteBuilder;
-use Bling\Builder\Entidade\ItensBuilder;
-use Bling\Builder\Entidade\ParcelasBuilder;
+use Bling\NotaFiscal\Entity\Pedido;
+use Bling\NotaFiscal\Builder\XmlBuilderTrait;
+use Bling\NotaFiscal\Builder\BuilderInterface;
+use Bling\NotaFiscal\Builder\Entidade\ClienteBuilder;
+use Bling\NotaFiscal\Builder\Entidade\ItensBuilder;
+use Bling\NotaFiscal\Builder\Entidade\ParcelasBuilder;
 
 class PedidoBuilder implements BuilderInterface
 {

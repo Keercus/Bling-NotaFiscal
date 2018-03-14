@@ -1,5 +1,5 @@
 {
-    "name" : "keercus/bling-sdk",
+    "name" : "keercus/bling-notafiscal",
     "description" : "Client para conexão com Bling ERP",
     "type" : "library",
     "license" : "MIT",
@@ -11,7 +11,7 @@
     ],
     "autoload" : {
         "psr-4" : {
-            "Bling\\" : "src/"
+            "Bling\\NotaFiscal\\" : "src/"
         },
         "files" : [
             "src/functions.php"
@@ -25,7 +25,8 @@
     "minimum-stability" : "dev",
     "require" : {
         "php" : ">=7.1",
-        "ext-soap" : "*"
+        "ext-curl" : "*",
+        "ext-dom" : "*"
     },
     "require-dev" : {
         "phpunit/phpunit" : "6.3.1"

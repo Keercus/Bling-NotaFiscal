@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Bling\Builder\Entidade;
+namespace Bling\NotaFiscal\Builder\Entidade;
 
-use Bling\Entity\Cliente;
-use Bling\Builder\XmlBuilderTrait;
-use Bling\Builder\BuilderInterface;
+use Bling\NotaFiscal\Entity\Cliente;
+use Bling\NotaFiscal\Builder\XmlBuilderTrait;
+use Bling\NotaFiscal\Builder\BuilderInterface;
 
 class ClienteBuilder implements BuilderInterface
 {

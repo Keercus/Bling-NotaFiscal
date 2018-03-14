@@ -2,8 +2,8 @@
 
 namespace Bling;
 
-use Bling\Client;
-use function Bling\maskString;
+use Bling\NotaFiscal\Client;
+use function Bling\NotaFiscal\maskString;
 
 class Bling
 {
@@ -245,7 +245,7 @@ class Bling
     ) : string
     {
         $response = '';
-        $client = new \Bling\Client($this->strBlingUrl); 
+        $client = new \Bling\NotaFiscal\Client($this->strBlingUrl); 
         if ($strAction == 'get') {
             $path = sprintf('%s/%s/%s', $path, $data, $strResponseFormat);
             $response = $client->request($path, Client::METHOD_GET, ['apikey' => $this->strApiKey]);

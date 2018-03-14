@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Bling\Entity;
+namespace Bling\NotaFiscal\Entity;
 
 class Cliente
 {

@@ -2,8 +2,8 @@
 
 namespace Tests\Builder\Entidade;
 
-use Bling\Builder\Entidade\PedidoBuilder;
-use Bling\Builder\XmlHandler;
+use Bling\NotaFiscal\Builder\Entidade\PedidoBuilder;
+use Bling\NotaFiscal\Builder\XmlHandler;
 use PHPUnit\Framework\TestCase;
 use Tests\Traits\EntityGeneratorTrait;
 
@@ -35,7 +35,7 @@ class PedidoBuilderTest extends TestCase
             $obs = '<obs/>';
         }
         $item[] = $obs;
-        $xml = '<pedido>' . implode('', $item) . '</pedido>';
+        $xml = '<pedido>' . implode('', $item);
 
         $pedidoBuilder = new PedidoBuilder($pedido);
         $xmlHandler->addChild($pedidoBuilder);

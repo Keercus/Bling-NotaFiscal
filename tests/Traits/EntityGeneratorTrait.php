@@ -2,11 +2,11 @@
 
 namespace Tests\Traits;
 
-use Bling\Entity\Cliente;
-use Bling\Entity\Endereco;
-use Bling\Entity\Item;
-use Bling\Entity\Pedido;
-use Bling\Entity\Parcela;
+use Bling\NotaFiscal\Entity\Cliente;
+use Bling\NotaFiscal\Entity\Endereco;
+use Bling\NotaFiscal\Entity\Item;
+use Bling\NotaFiscal\Entity\Pedido;
+use Bling\NotaFiscal\Entity\Parcela;
 
 trait EntityGeneratorTrait
 {

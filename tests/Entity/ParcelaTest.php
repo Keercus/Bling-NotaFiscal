@@ -3,7 +3,7 @@
 namespace Tests\Entity;
 
 use PHPUnit\Framework\TestCase;
-use Bling\Entity\Parcela;
+use Bling\NotaFiscal\Entity\Parcela;
 
 class ParcelaTest extends TestCase
 {

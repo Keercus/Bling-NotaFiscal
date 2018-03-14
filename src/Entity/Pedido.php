@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Bling\Entity;
+namespace Bling\NotaFiscal\Entity;
 
-use Bling\Entity\Cliente;
+use Bling\NotaFiscal\Entity\Cliente;
 
 class Pedido
 {

@@ -3,7 +3,7 @@
 namespace Tests\Entity;
 
 use PHPUnit\Framework\TestCase;
-use Bling\Entity\Item;
+use Bling\NotaFiscal\Entity\Item;
 
 class ItemTest extends TestCase
 {

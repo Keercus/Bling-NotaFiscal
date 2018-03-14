@@ -3,10 +3,10 @@
 namespace Tests\Entity;
 
 use PHPUnit\Framework\TestCase;
-use Bling\Entity\Cliente;
-use Bling\Entity\Endereco;
-use Bling\Entity\Item;
-use Bling\Entity\Pedido;
+use Bling\NotaFiscal\Entity\Cliente;
+use Bling\NotaFiscal\Entity\Endereco;
+use Bling\NotaFiscal\Entity\Item;
+use Bling\NotaFiscal\Entity\Pedido;
 use Tests\Traits\EntityGeneratorTrait;
 
 class PedidoTest extends TestCase

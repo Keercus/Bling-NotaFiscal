@@ -3,8 +3,8 @@
 namespace Tests\Entity;
 
 use PHPUnit\Framework\TestCase;
-use Bling\Entity\Cliente;
-use Bling\Entity\Endereco;
+use Bling\NotaFiscal\Entity\Cliente;
+use Bling\NotaFiscal\Entity\Endereco;
 
 class EnderecoTest extends TestCase
 {

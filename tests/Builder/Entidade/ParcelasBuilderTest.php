@@ -2,8 +2,8 @@
 
 namespace Tests\Builder\Entidade;
 
-use Bling\Builder\Entidade\ParcelasBuilder;
-use Bling\Builder\XmlHandler;
+use Bling\NotaFiscal\Builder\Entidade\ParcelasBuilder;
+use Bling\NotaFiscal\Builder\XmlHandler;
 use PHPUnit\Framework\TestCase;
 use Tests\Traits\EntityGeneratorTrait;
 

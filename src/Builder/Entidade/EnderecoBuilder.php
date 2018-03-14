@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Bling\Builder\Entidade;
+namespace Bling\NotaFiscal\Builder\Entidade;
 
-use Bling\Entity\Endereco;
-use Bling\Builder\XmlBuilderTrait;
-use Bling\Builder\BuilderInterface;
+use Bling\NotaFiscal\Entity\Endereco;
+use Bling\NotaFiscal\Builder\XmlBuilderTrait;
+use Bling\NotaFiscal\Builder\BuilderInterface;
 
 class EnderecoBuilder implements BuilderInterface
 {

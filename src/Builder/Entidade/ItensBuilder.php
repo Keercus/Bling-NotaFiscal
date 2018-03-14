@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Bling\Builder\Entidade;
+namespace Bling\NotaFiscal\Builder\Entidade;
 
-use Bling\Entity\Itens;
-use Bling\Builder\XmlBuilderTrait;
-use Bling\Builder\BuilderInterface;
-use Bling\Entity\Item;
+use Bling\NotaFiscal\Entity\Itens;
+use Bling\NotaFiscal\Builder\XmlBuilderTrait;
+use Bling\NotaFiscal\Builder\BuilderInterface;
+use Bling\NotaFiscal\Entity\Item;
 
 class ItensBuilder implements BuilderInterface
 {

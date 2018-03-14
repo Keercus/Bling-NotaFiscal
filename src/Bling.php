@@ -2,7 +2,7 @@
 
 namespace Bling\NotaFiscal;
 
-use Bling\NotaFiscal\Client;
+use Bling\NotaFiscal\Http\Client;
 use function Bling\NotaFiscal\maskString;
 
 class Bling
@@ -18,7 +18,7 @@ class Bling
     public function __construct(string $apiKey)
     {
         $this->apiKey = $apiKey;
-        $this->httpClient = new \Bling\NotaFiscal\Client($this->strBlingUrl);
+        $this->httpClient = new Client($this->strBlingUrl);
     }
 
     /**

@@ -4,7 +4,7 @@ namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 use Bling\NotaFiscal\Bling;
-use Bling\NotaFiscal\Client;
+use Bling\NotaFiscal\Http\Client;
 
 class BlingTest extends TestCase
 {

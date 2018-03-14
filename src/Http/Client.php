@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Bling\NotaFiscal;
+namespace Bling\NotaFiscal\Http;
 
 class Client
 {

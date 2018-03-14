@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Bling;
+namespace Bling\NotaFiscal;
 
 class Client
 {
@@ -24,7 +24,7 @@ class Client
     {
         switch ($method) {
             case self::METHOD_GET:
-                $path .= http_build_query($data);
+                $path .= '?' . http_build_query($data);
                 break;
             case self::METHOD_POST:
                 curl_setopt($this->handle, CURLOPT_POST, count($data));
@@ -37,7 +37,7 @@ class Client
         }
 
         curl_setopt($this->handle, CURLOPT_URL, sprintf('%s/%s', $this->baseUrl, $path));
-        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($this->handle, CURLOPT_RETURNTRANSFER, true);
 
         $response = curl_exec($this->handle);
 

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Bling
+namespace Bling\NotaFiscal
 {
     function maskString(string $value, string $pattern) : string
     {

@@ -87,6 +87,7 @@ class Bling
             $nota['chaveacesso'],
             $nota['numero'],
             $nota['serie'],
+            $nota['situacao'],
             $nota['xml'],
             $nota['linkdanfe']
         );

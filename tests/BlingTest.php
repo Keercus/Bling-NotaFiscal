@@ -36,5 +36,7 @@ class BlingTest extends TestCase
 
         $this->assertInstanceOf(NotaFiscal::class, $notaFiscal);
         $this->assertEquals('35180309003185000162550010000180991379836622', $notaFiscal->getChaveAcesso());
+        $this->assertEquals(NotaFiscal::AUTORIZADA, $notaFiscal->getSituacao());
+        $this->assertTrue($notaFiscal->isSituacao(NotaFiscal::AUTORIZADA));
     }
 }

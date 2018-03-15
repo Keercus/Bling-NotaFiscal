@@ -19,6 +19,7 @@ class NotaFiscalTest extends TestCase
             $chaveAcesso,
             $numero,
             $serie,
+            NotaFiscal::PENDENTE,
             $xmlLink,
             $danfeLink
         );
@@ -29,5 +30,6 @@ class NotaFiscalTest extends TestCase
         $this->assertEquals($serie, $nota->getSerie());
         $this->assertEquals($xmlLink, $nota->getXmlLink());
         $this->assertEquals($danfeLink, $nota->getDanfeLink());
+        $this->assertTrue($nota->isSituacao(NotaFiscal::PENDENTE));
     }
 }

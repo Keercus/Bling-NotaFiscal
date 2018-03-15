@@ -23,7 +23,7 @@
             "Tests\\" : "tests/"
         }
     },
-    "minimum-stability" : "master",
+    "minimum-stability" : "stable",
     "require" : {
         "php" : ">=7.1",
         "ext-curl" : "*",

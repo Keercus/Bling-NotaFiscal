@@ -5,6 +5,7 @@ namespace Tests;
 use PHPUnit\Framework\TestCase;
 use Bling\NotaFiscal\Bling;
 use Bling\NotaFiscal\Http\Client;
+use Bling\NotaFiscal\Entity\NotaFiscal;
 
 class BlingTest extends TestCase
 {
@@ -31,8 +32,9 @@ class BlingTest extends TestCase
         $reflectionProperty->setAccessible(true);
         $reflectionProperty->setValue($bling, $mockClient);
 
-        $resp = $bling->getNotaFiscal('18099', '001');
+        $notaFiscal = $bling->getNotaFiscal('18099', '001');
 
-        $this->assertInternalType('array', $resp);
+        $this->assertInstanceOf(NotaFiscal::class, $notaFiscal);
+        $this->assertEquals('35180309003185000162550010000180991379836622', $notaFiscal->getChaveAcesso());
     }
 }

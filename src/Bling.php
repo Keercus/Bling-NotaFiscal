@@ -4,6 +4,7 @@ namespace Bling\NotaFiscal;
 
 use Bling\NotaFiscal\Http\Client;
 use function Bling\NotaFiscal\maskString;
+use Bling\NotaFiscal\Entity\NotaFiscal;
 
 class Bling
 {
@@ -31,7 +32,7 @@ class Bling
     public function getNotaFiscal(
         ?string $numeroNota = null,
         ?string $serieNota = null
-    ): array
+    ): NotaFiscal
     {
         $path = '';
         if ($numeroNota || $serieNota) {
@@ -46,7 +47,7 @@ class Bling
         ?string $data = null,
         ?string $strResponseFormat = null,
         ?string $strItemCode = null
-    ): array
+    ): NotaFiscal
     {
         $response = '';
         $client = $this->httpClient;
@@ -71,12 +72,25 @@ class Bling
         return $this->parseResponse($response);
     }
 
-    private function parseResponse(string $response): array
+    private function parseResponse(string $response): NotaFiscal
     {
         $xml = simplexml_load_string($response, \SimpleXMLElement::class, LIBXML_NOCDATA);
         $json = json_encode($xml);
         $array = json_decode($json, true);
 
-        return $array;
+        if (isset($array['erros'])) {
+            throw new \Exception('Nota fiscal nao encontrada');
+        }
+
+        $nota = $array['notasfiscais']['notafiscal'];
+        $notaFiscal = new NotaFiscal(
+            $nota['chaveacesso'],
+            $nota['numero'],
+            $nota['serie'],
+            $nota['xml'],
+            $nota['linkdanfe']
+        );
+
+        return $notaFiscal;
     }
 }

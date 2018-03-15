@@ -16,9 +16,9 @@ class NotaFiscalTest extends TestCase
         $serie = '1';
 
         $nota = new NotaFiscal(
-            $chaveAcesso,
             $numero,
             $serie,
+            $chaveAcesso,
             NotaFiscal::PENDENTE,
             $xmlLink,
             $danfeLink

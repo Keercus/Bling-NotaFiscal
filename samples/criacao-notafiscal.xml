@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<retorno>
+    <notasfiscais>
+        <notafiscal>
+            <numero>000001</numero>
+            <serie>1</serie>
+            <codigos_rastreamento>
+                <codigo_rastreamento/>
+            </codigos_rastreamento>
+            <volumes/>
+            <idnotafiscal>1658734783</idnotafiscal>
+        </notafiscal>
+    </notasfiscais>
+</retorno>

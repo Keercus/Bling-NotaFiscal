@@ -95,14 +95,23 @@ class Bling
         }
 
         $nota = $array['notasfiscais']['notafiscal'];
-        $notaFiscal = new NotaFiscal(
-            $nota['chaveacesso'],
-            $nota['numero'],
-            $nota['serie'],
-            $nota['situacao'],
-            $nota['xml'],
-            $nota['linkdanfe']
-        );
+        $chaveAcesso = '';
+        if (isset($nota['chaveacesso'])) {
+            $chaveAcesso = is_string($nota['chaveacesso']) ? $nota['chaveacesso'] : '';
+        }
+        $situacao = NotaFiscal::PENDENTE;
+        if (isset($nota['situacao'])) {
+            $situacao = $nota['situacao'];
+        }
+        $xml = '';
+        if (isset($nota['xml'])) {
+            $xml = is_string($nota['xml']) ? $nota['xml'] : '';
+        }
+        $linkDanfe = '';
+        if (isset($nota['linkdanfe'])) {
+            $linkDanfe = is_string($nota['linkdanfe']) ? $nota['linkdanfe'] : '';
+        }
+        $notaFiscal = new NotaFiscal($nota['numero'], $nota['serie'], $chaveAcesso, $situacao, $xml, $linkDanfe);
 
         return $notaFiscal;
     }

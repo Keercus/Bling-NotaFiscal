@@ -31,11 +31,12 @@ function generateItem(): Item
 
 function generatePedido(): Pedido
 {
-    return new Pedido('123', generateCliente(), [generateItem()], 0, [], 0, 0, 0, '');
+    return new Pedido('002', generateCliente(), [generateItem()], 0, [], 0, 0, 0, '');
 }
 
 
-$bling = new Bling\NotaFiscal\Bling('d9bc439b5ea518814c7ec271eb81c618868ad603');
+$apiKey = 'bbd93972e542990e3bb6e47f04210706e7904f81d6cc91d2da2ea2a63d694ed237d4fcd3';
+$bling = new Bling\NotaFiscal\Bling($apiKey);
 
 $response = $bling->enviaNotaFiscal(generatePedido());
 

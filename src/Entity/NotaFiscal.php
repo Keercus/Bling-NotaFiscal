@@ -37,9 +37,9 @@ class NotaFiscal
     private $situacao;
 
     public function __construct(
-        string $chaveAcesso,
         string $numero,
         string $serie,
+        string $chaveAcesso,
         string $situacao = self::PENDENTE,
         ?string $xmlLink = '',
         ?string $danfeLink = ''

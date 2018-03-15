@@ -5,6 +5,9 @@ namespace Bling\NotaFiscal;
 use Bling\NotaFiscal\Http\Client;
 use function Bling\NotaFiscal\maskString;
 use Bling\NotaFiscal\Entity\NotaFiscal;
+use Bling\NotaFiscal\Entity\Pedido;
+use Bling\NotaFiscal\Builder\XmlHandler;
+use Bling\NotaFiscal\Builder\Entidade\PedidoBuilder;
 
 class Bling
 {
@@ -29,22 +32,32 @@ class Bling
      * @param string $serieNota
      * @return string (json|xml)
      */
-    public function getNotaFiscal(
-        ?string $numeroNota = null,
-        ?string $serieNota = null
-    ): NotaFiscal
-    {
-        $path = '';
-        if ($numeroNota || $serieNota) {
+        public function buscaNotaFiscal(
+            ?string $numeroNota = null,
+            ?string $serieNota = null
+        ): NotaFiscal
+        {
+            $path = '';
+            if ($numeroNota || $serieNota) {
             $path = $numeroNota . "/" . $serieNota;
         }
         return $this->sendToBling('notafiscal/' . $path);
     }
 
+    public function enviaNotaFiscal(Pedido $pedido): NotaFiscal
+    {
+        $xmlHandler = new XmlHandler();
+        $pedidoBuilder = new PedidoBuilder($pedido);
+        $xmlHandler->addChild($pedidoBuilder);
+        $xml = $xmlHandler->handle();
+
+        return $this->sendToBling('notafiscal', 'post', ['xml' => rawurlencode($xml)]);
+    }
+
     private function sendToBling(
         string $path,
         string $strAction = 'get',
-        ?string $data = null,
+        ?array $data = [],
         ?string $strResponseFormat = null,
         ?string $strItemCode = null
     ): NotaFiscal
@@ -58,10 +71,9 @@ class Bling
             $response = $client->request(
                 $path,
                 Client::METHOD_POST,
-                array_merge($arrayData, ['apikey' => $this->apiKey])
+                array_merge($data, ['apikey' => $this->apiKey])
             );
         } elseif($strAction == 'delete') {
-            $path = sprintf('%s/%s/%s', $path, $data, $strResponseFormat);
             $response = $client->request(
                 $path,
                 Client::METHOD_DELETE,
@@ -79,7 +91,7 @@ class Bling
         $array = json_decode($json, true);
 
         if (isset($array['erros'])) {
-            throw new \Exception('Nota fiscal nao encontrada');
+            throw new \Exception($array['erros']['erro']['msg']);
         }
 
         $nota = $array['notasfiscais']['notafiscal'];

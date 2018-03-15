@@ -32,7 +32,7 @@ class BlingTest extends TestCase
         $reflectionProperty->setAccessible(true);
         $reflectionProperty->setValue($bling, $mockClient);
 
-        $notaFiscal = $bling->getNotaFiscal('18099', '001');
+        $notaFiscal = $bling->buscaNotaFiscal('18099', '001');
 
         $this->assertInstanceOf(NotaFiscal::class, $notaFiscal);
         $this->assertEquals('35180309003185000162550010000180991379836622', $notaFiscal->getChaveAcesso());

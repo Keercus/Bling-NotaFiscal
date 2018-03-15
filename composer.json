@@ -2,6 +2,7 @@
     "name" : "keercus/bling-notafiscal",
     "description" : "Client para conexão com Bling ERP",
     "type" : "library",
+    "keywords" : ["client-api"],
     "license" : "MIT",
     "version" : "1.0.0",
     "authors" : [

@@ -3,6 +3,7 @@
     "description" : "Client para conexão com Bling ERP",
     "type" : "library",
     "license" : "MIT",
+    "version" : "1.0.0",
     "authors" : [
         {
             "name" : "Igor Carvalho",

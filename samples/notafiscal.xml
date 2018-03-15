@@ -3,34 +3,34 @@
     <notasfiscais>
         <notafiscal>
             <serie>1</serie>
-            <numero>018099</numero>
+            <numero>0001</numero>
             <loja>0</loja>
             <numeropedidoloja/>
             <tipo>S</tipo>
             <situacao>Autorizada</situacao>
             <cliente>
-                <nome>Tássia MACEDO da Silva </nome>
-                <cnpj>94794081200</cnpj>
+                <nome>Nome do Cliente</nome>
+                <cnpj>12345678900</cnpj>
                 <ie/>
                 <rg/>
-                <endereco>Avenida Jornalista Umberto Calderaro Filho</endereco>
-                <numero>624</numero>
-                <complemento>Cond São José do Rio Negro bloco 2A apt 201</complemento>
+                <endereco>Endereco</endereco>
+                <numero>123</numero>
+                <complemento>Complemento</complemento>
                 <cidade>Manaus</cidade>
-                <bairro>Adrianópolis</bairro>
-                <cep>69.057-015</cep>
+                <bairro>Nome do Bairro</bairro>
+                <cep>12.123-123</cep>
                 <uf>AM</uf>
-                <email>tassiamacedo@me.com</email>
-                <fone>(92) 9126-9522</fone>
+                <email>teste@me.com</email>
+                <fone>(11) 1243-1234</fone>
             </cliente>
-            <contato>Tássia MACEDO da Silva </contato>
-            <cnpj>94794081200</cnpj>
+            <contato>Nome do Contato</contato>
+            <cnpj>12345678900</cnpj>
             <vendedor/>
             <dataemissao>2018-03-13 13:26:25</dataemissao>
             <valornota>91.64</valornota>
-            <chaveacesso>35180309003185000162550010000180991379836622</chaveacesso>
-            <xml>https://bling.com.br/relatorios/nfe.xml.php?s&amp;chaveAcesso=35180309003185000162550010000180991379836622</xml>
-            <linkdanfe>https://bling.com.br/doc.view.php?id=5d66aac20f47646856cefdcaee2a7755</linkdanfe>
+            <chaveacesso>12345678912345678962550010000180991379836622</chaveacesso>
+            <xml>https://bling.com.br/relatorios/nfe.xml.php?s&amp;chaveAcesso=12345678912345678962550010000180991379836622</xml>
+            <linkdanfe>https://bling.com.br/doc.view.php?id=53ggrg5h5u6he2a7755</linkdanfe>
             <codigosrastreamento/>
             <cfops>
                 <item>6101</item>

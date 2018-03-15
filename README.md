@@ -12,7 +12,7 @@ Para acessar, basca clicar [aqui](https://manuais.bling.com.br/api/?item=notas-f
 ## Buscar dados da nota Fiscal
 
 ```php
-require __DIR__ . '/vendor/autload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 $bling = new \Bling\NotaFiscal\Bling('sua-api-key');
 $nota = $bling->buscaNotaFiscal('numero-nota', 'serie'); // Retorna NotaFiscal()
@@ -23,7 +23,7 @@ echo $nota->getChaveAcesso();
 ## Enviar dados de nota fiscal
 
 ```php
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use Bling\NotaFiscal\Entity\Cliente;
 use Bling\NotaFiscal\Entity\Endereco;
@@ -58,7 +58,7 @@ function generatePedido(): Pedido
 }
 
 
-$apiKey = 'bbd93972e542990e3bb6e47f04210706e7904f81d6cc91d2da2ea2a63d694ed237d4fcd3';
+$apiKey = 'sua-api-key';
 $bling = new Bling\NotaFiscal\Bling($apiKey);
 
 $response = $bling->enviaNotaFiscal(generatePedido());

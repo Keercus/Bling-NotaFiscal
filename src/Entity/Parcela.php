@@ -19,7 +19,7 @@ class Parcela
         float $valor,
         int $dias = 1,
         string $observacao = '-',
-        string $formaPagamento = ''
+        ?string $formaPagamento = null
     ) {
         $this->data = $data;
         $this->valor = $valor;
@@ -48,7 +48,7 @@ class Parcela
         return $this->observacao;
     }
 
-    public function getFormaPagamento(): string
+    public function getFormaPagamento(): ?string
     {
         return $this->formaPagamento;
     }

@@ -53,11 +53,13 @@ class ParcelasBuilder implements BuilderInterface
             'obs',
             $parcela->getObservacao()
         );
-        $parcelaNode = $this->addXmlChild(
-            $parcelaNode,
-            'forma',
-            (string)$parcela->getFormaPagamento()
-        );
+        if ($parcela->getFormaPagamento()) {
+            $parcelaNode = $this->addXmlChild(
+                $parcelaNode,
+                'forma',
+                (string)$parcela->getFormaPagamento()
+            );
+        }
 
         return $parcelaNode;
     }

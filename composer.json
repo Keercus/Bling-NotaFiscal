@@ -4,7 +4,6 @@
     "type" : "library",
     "keywords" : ["client-api"],
     "license" : "MIT",
-    "version" : "1.0.0",
     "authors" : [
         {
             "name" : "Igor Carvalho",
@@ -24,7 +23,7 @@
             "Tests\\" : "tests/"
         }
     },
-    "minimum-stability" : "stable",
+    "minimum-stability" : "dev",
     "require" : {
         "php" : ">=7.1",
         "ext-curl" : "*",

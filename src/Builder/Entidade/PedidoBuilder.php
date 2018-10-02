@@ -6,6 +6,7 @@ use Bling\NotaFiscal\Entity\Pedido;
 use Bling\NotaFiscal\Builder\XmlBuilderTrait;
 use Bling\NotaFiscal\Builder\BuilderInterface;
 use Bling\NotaFiscal\Builder\Entidade\ClienteBuilder;
+use Bling\NotaFiscal\Builder\Entidade\EnderecoBuilder;
 use Bling\NotaFiscal\Builder\Entidade\ItensBuilder;
 use Bling\NotaFiscal\Builder\Entidade\ParcelasBuilder;
 

@@ -12,9 +12,12 @@ class ClienteBuilder implements BuilderInterface
 
     private $cliente;
 
+    private $endereco;
+
     public function __construct(Cliente $cliente)
     {
         $this->cliente = $cliente;
+        $this->endereco = $cliente->getEndereco();
     }
 
     public function build(\DOMDocument $xml): \DOMDocument
@@ -51,6 +54,47 @@ class ClienteBuilder implements BuilderInterface
             $this->cliente->getEmail()
         );
 
+        $clienteNode = $this->addXmlChild(
+            $clienteNode,
+            'endereco',
+            $this->sanitize($this->endereco->getEndereco())
+        );
+
+        $clienteNode = $this->addXmlChild(
+            $clienteNode,
+            'numero',
+            $this->sanitize($this->endereco->getNumero())
+        );
+        
+        $clienteNode = $this->addXmlChild(
+            $clienteNode,
+            'complemento',
+            $this->sanitize($this->endereco->getComplemento())
+        );
+        
+        $clienteNode = $this->addXmlChild(
+            $clienteNode,
+            'bairro',
+            $this->sanitize($this->endereco->getBairro())
+        );
+        
+        $clienteNode = $this->addXmlChild(
+            $clienteNode,
+            'cep',
+            $this->endereco->getCep()
+        );
+        
+        $clienteNode = $this->addXmlChild(
+            $clienteNode,
+            'cidade',
+            $this->sanitize($this->endereco->getCidade())
+        );
+
+        $clienteNode = $this->addXmlChild(
+            $clienteNode,
+            'uf',
+            $this->endereco->getUf()
+        );
         $xml->appendChild($clienteNode);
         return $xml;
     }

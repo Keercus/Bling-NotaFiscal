@@ -28,7 +28,14 @@ class ClienteBuilderTest extends TestCase
             sprintf('<tipoPessoa>%s</tipoPessoa>', $cliente->getTipoPessoa()),
             sprintf('<cpf_cnpj>%s</cpf_cnpj>', $cliente->getCpfCnpj()),
             sprintf('<fone>%s</fone>', $cliente->getFone()),
-            sprintf('<email>%s</email>', $cliente->getEmail())
+            sprintf('<email>%s</email>', $cliente->getEmail()),
+            sprintf('<endereco>%s</endereco>', $cliente->getEndereco()->getEndereco()),
+            sprintf('<numero>%s</numero>', $cliente->getEndereco()->getNumero()),
+            sprintf('<complemento>%s</complemento>', $cliente->getEndereco()->getComplemento()),
+            sprintf('<bairro>%s</bairro>', $cliente->getEndereco()->getBairro()),
+            sprintf('<cep>%s</cep>', $cliente->getEndereco()->getCep()),
+            sprintf('<cidade>%s</cidade>', $cliente->getEndereco()->getCidade()),
+            sprintf('<uf>%s</uf>', $cliente->getEndereco()->getUf())
         ];
         $xml = '<cliente>' . implode('', $items) . '</cliente>';
 

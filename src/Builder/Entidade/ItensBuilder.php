@@ -37,13 +37,13 @@ class ItensBuilder implements BuilderInterface
         $itemNode = $this->addXmlChild(
             $itemNode,
             'codigo',
-            $item->getCodigo()
+            $this->sanitize($item->getCodigo())
         );
 
         $itemNode = $this->addXmlChild(
             $itemNode,
             'descricao',
-            $item->getDescricao()
+            $this->sanitize($item->getDescricao())
         );
 
         $itemNode = $this->addXmlChild(
@@ -67,7 +67,7 @@ class ItensBuilder implements BuilderInterface
         $itemNode = $this->addXmlChild(
             $itemNode,
             'tipo',
-            $item->getTipo()
+            $this->sanitize($item->getTipo())
         );
 
         $itemNode = $this->addXmlChild(

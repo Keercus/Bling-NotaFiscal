@@ -27,25 +27,25 @@ class EnderecoBuilder implements BuilderInterface
         $enderecoNode = $this->addXmlChild(
             $enderecoNode,
             'endereco',
-            $this->endereco->getEndereco()
+            $this->sanitize($this->endereco->getEndereco())
         );
 
         $enderecoNode = $this->addXmlChild(
             $enderecoNode,
             'numero',
-            $this->endereco->getNumero()
+            $this->sanitize($this->endereco->getNumero())
         );
         
         $enderecoNode = $this->addXmlChild(
             $enderecoNode,
             'complemento',
-            $this->endereco->getComplemento()
+            $this->sanitize($this->endereco->getComplemento())
         );
         
         $enderecoNode = $this->addXmlChild(
             $enderecoNode,
             'bairro',
-            $this->endereco->getBairro()
+            $this->sanitize($this->endereco->getBairro())
         );
         
         $enderecoNode = $this->addXmlChild(
@@ -57,7 +57,7 @@ class EnderecoBuilder implements BuilderInterface
         $enderecoNode = $this->addXmlChild(
             $enderecoNode,
             'cidade',
-            $this->endereco->getCidade()
+            $this->sanitize($this->endereco->getCidade())
         );
 
         $enderecoNode = $this->addXmlChild(

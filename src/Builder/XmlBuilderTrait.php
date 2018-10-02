@@ -11,4 +11,13 @@ trait XmlBuilderTrait
 
         return $node;
     }
+
+    public function sanitize($string): string
+    {
+        return str_replace(
+            ['&', '<', '>', '\'', '"'], 
+            ['&amp;', '&lt;', '&gt;', '&apos;', '&quot;'],
+            $string
+        );
+    }
 }

@@ -29,9 +29,9 @@ class ParcelaBuilderTest extends TestCase
             sprintf('<vlr>%s</vlr>', $parcela->getValor()),
             sprintf('<obs>%s</obs>', $parcela->getObservacao()),
         ];
-        $forma = sprintf('<forma>%s</forma>', $parcela->getFormaPagamento());
-        if ('' == $parcela->getFormaPagamento()) {
-            $forma = '<forma/>';
+        $forma = '';
+        if ('' != $parcela->getFormaPagamento()) {
+            $forma = sprintf('<forma>%s</forma>', $parcela->getFormaPagamento());
         }
         $items[] = $forma;
         $itemXml = '<parcela>' . implode('', $items) . '</parcela>';

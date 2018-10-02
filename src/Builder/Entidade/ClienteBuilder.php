@@ -24,7 +24,7 @@ class ClienteBuilder implements BuilderInterface
         $clienteNode = $this->addXmlChild(
             $clienteNode,
             'nome',
-            $this->cliente->getNome()
+            $this->sanitize($this->cliente->getNome())
         );
 
         $clienteNode = $this->addXmlChild(

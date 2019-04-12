@@ -44,6 +44,33 @@ class Bling
         return $this->sendToBling('notafiscal/' . $path);
     }
 
+    /**
+     * Transmite uma nota fiscal no ERP Bling
+     *
+     * @param string $numeroNota
+     * @param string $serieNota
+     * @param string $enviaEmail
+     * @return string (json|xml)
+     */
+    public function transmiteNotaFiscal(
+        ?string $numeroNota = null,
+        ?string $serieNota = null,
+        ?bool $enviaEmail = false): NotaFiscal
+    {
+        $data = [
+            'number'    => $numeroNota,
+            'serie'     => $serieNota,
+            'sendEmail' => $enviaEmail
+        ];
+
+        $path = '';
+        if ($numeroNota || $serieNota) {
+            $path = $numeroNota . "/" . $serieNota;
+        }
+
+        return $this->sendToBling('notafiscal/' . $path, 'post', $data);
+    }
+
     public function enviaNotaFiscal(Pedido $pedido): NotaFiscal
     {
         $xmlHandler = new XmlHandler();

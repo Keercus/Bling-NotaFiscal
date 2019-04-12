@@ -66,6 +66,17 @@ $response = $bling->enviaNotaFiscal(generatePedido());
 var_dump($response);
 ```
 
+## Transmite uma nota Fiscal
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+$bling = new \Bling\NotaFiscal\Bling('sua-api-key');
+$nota = $bling->transmiteNotaFiscal('numero-nota', 'serie', 'enviar-email (true|false)');
+
+var_dump($response);
+```
+
 ## Objeto NotaFiscal
 
 Ao enviar uma nova nota ou buscar uma nota qualquer, será retornado uma Entidade `NotaFiscal` com as seguintes informações
